@@ -4,4 +4,3 @@ def islower(c):
 
 
 islower = __import__('7-islower').islower
-

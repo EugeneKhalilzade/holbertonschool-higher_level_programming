@@ -1,4 +1,12 @@
 #!/usr/bin/python3
 def safe_print_list(my_list=[], x=0):
-    newlist = len(enumerate(my_list))
-    return newlist
+    count = 0
+    try:
+        for i in range(x):
+            print(my_list[i], end="")
+            count += 1
+    except Exception:
+        pass
+    print()
+    return count
+

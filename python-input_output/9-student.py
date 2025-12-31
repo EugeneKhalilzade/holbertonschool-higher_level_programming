@@ -1,21 +1,16 @@
-
 #!/usr/bin/python3
-'''
-file: 11-student.py
-Classes:
--> Student
-'''
+"""Defines a Student class."""
 
 
 class Student:
-    ''' Student class '''
+    """Represents a student."""
 
     def __init__(self, first_name, last_name, age):
-        ''' Constructor method '''
+        """Initialize a new Student."""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self):
-        ''' Method that returns directory description '''
+        """Return the dictionary representation of the Student."""
         return self.__dict__.copy()

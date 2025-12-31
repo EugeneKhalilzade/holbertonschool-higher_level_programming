@@ -26,29 +26,37 @@ def print_stats():
             print("{}: {}".format(code, status_codes[code]))
 
 
-try:
-    for line in sys.stdin:
-        parts = line.split()
+def parse_logs():
+    """Read stdin line by line and compute metrics."""
+    global total_size, line_count
 
-        if len(parts) < 2:
-            continue
+    try:
+        for line in sys.stdin:
+            parts = line.split()
 
-        status = parts[-2]
-        size = parts[-1]
+            if len(parts) < 2:
+                continue
 
-        if status in status_codes:
-            status_codes[status] += 1
+            status = parts[-2]
+            size = parts[-1]
 
-        try:
-            total_size += int(size)
-        except ValueError:
-            pass
+            if status in status_codes:
+                status_codes[status] += 1
 
-        line_count += 1
+            try:
+                total_size += int(size)
+            except ValueError:
+                pass
 
-        if line_count % 10 == 0:
-            print_stats()
+            line_count += 1
 
-except KeyboardInterrupt:
-    print_stats()
-    raise
+            if line_count % 10 == 0:
+                print_stats()
+
+    except KeyboardInterrupt:
+        print_stats()
+        raise
+
+
+if __name__ == "__main__":
+    parse_logs()

@@ -1,10 +1,11 @@
-SELECT name
-FROM tv_genres
-WHERE id NOT IN (
-    SELECT tv_genres.id
-    FROM tv_genres
-    JOIN tv_show_genres ON tv_genres.id = tv_show_genres.genre_id
-    JOIN tv_shows ON tv_shows.id = tv_show_genres.show_id
-    WHERE tv_shows.title = 'Dexter'
+-- Lists all genres not linked to the show Dexter
+SELECT NAME
+FROM TV_GENRES
+WHERE ID NOT IN (
+    SELECT TV_GENRES.ID
+    FROM TV_GENRES
+    JOIN TV_SHOW_GENRES ON TV_GENRES.ID = TV_SHOW_GENRES.GENRE_ID
+    JOIN TV_SHOWS ON TV_SHOWS.ID = TV_SHOW_GENRES.SHOW_ID
+    WHERE TV_SHOWS.TITLE = 'Dexter'
 )
-ORDER BY name;
+ORDER BY NAME;

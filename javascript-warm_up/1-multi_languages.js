@@ -1,9 +1,8 @@
 #!/usr/bin/node
-const firstLine = 'C is fun';
-const secondLine = 'Python is cool';
-const thirdLine = 'JavaScript is amazing';
 
-console.log(firstLine);
-console.log(secondLine);
-console.log(thirdLine);
+// This script prints three lines about different programming languages
+const firstline = 'C is fun';
+const secondline = 'Python is cool';
+const thirdline = 'JavaScript is amazing';
 
+console.log(`${firstline}\n${secondline}\n${thirdline}`);

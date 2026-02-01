@@ -1,13 +1,10 @@
 #!/usr/bin/node
 
-function secondBiggest (array) {
-  if (array.length === 0 || array.length === 1) {
-    return 0;
-  } else {
-    const sortedArray = array.sort((a, b) => a - b);
-    return sortedArray[sortedArray.length - 2];
-  }
-}
+const args = process.argv.slice(2).map(x => parseInt(x));
 
-const argsArray = process.argv.slice(2).map(Number);
-console.log(secondBiggest(argsArray));
+if (args.length < 2) {
+  console.log(0);
+} else {
+  const sorted = args.sort((a, b) => b - a);
+  console.log(sorted[1]);
+}

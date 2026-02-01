@@ -1,1 +1,1 @@
-hi
+# JavaScript - Warm up
